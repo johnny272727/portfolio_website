@@ -1,6 +1,9 @@
 import csv
 from pathlib import Path
 from time import gmtime, strftime
+from passchecker import Passchecker 
+
+
 def does_file_exists(file_path):
     return Path(file_path).is_file()
 
@@ -15,3 +18,7 @@ def save_data_to_csv(data):
         writer.writerow([*data.values(), strftime("%Y-%m-%d %H:%M:%S",gmtime())+" UTC"])    
 
     
+def check_password(pwd):
+    pass_checker = Passchecker(pwd)
+    check_result = pass_checker.pwned_api_check()
+    return check_result
