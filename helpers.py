@@ -2,7 +2,7 @@ import csv
 from pathlib import Path
 from time import gmtime, strftime
 from passchecker import Passchecker 
-
+from flask import send_file
 
 def does_file_exists(file_path):
     return Path(file_path).is_file()
@@ -22,3 +22,8 @@ def check_password(pwd):
     pass_checker = Passchecker(pwd)
     check_result = pass_checker.pwned_api_check()
     return check_result
+
+
+def download_resume():
+    path = Path('./static/uploads/resume/Ning_Resume.pdf')
+    return send_file(path,as_attachment=True)

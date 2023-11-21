@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect,flash, request
-from helpers import save_data_to_csv, check_password
+from helpers import save_data_to_csv, check_password, download_resume
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -37,4 +37,12 @@ def check_pass_form_submit():
     return render_template('./passwordchecker.html',password_health_status = password_health_status)
 
 
-
+@app.route('/download-resume', methods=['GET','POST'])
+def download_file():
+    try:
+      return download_resume()
+    except:
+      flash("Something Wrong Try again later please.")
+      return redirect('./index')
+    
+    
