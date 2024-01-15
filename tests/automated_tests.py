@@ -14,7 +14,7 @@ class PortfolioAutoTest(unittest.TestCase):
       
     def test_is_website_availability(self):
         self.driver.get(self.web_url)
-        self.assertIn('Ning - Portfolio',self.driver.title)
+        self.assertIn('Johnny - Portfolio',self.driver.title)
         
     def test_send_msg_btn_availability(self):
         self.driver.get(self.web_url)
@@ -26,6 +26,6 @@ class PortfolioAutoTest(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-# 'Ning - Portfolio'
+# 'Johnny - Portfolio'
 if __name__ == '__main__':
     unittest.main()
