@@ -25,5 +25,5 @@ def check_password(pwd):
 
 
 def download_resume():
-    path = Path('./static/uploads/resume/Ning_Resume.pdf')
+    path = Path('./static/uploads/resume/Johnny_Resume.pdf')
     return send_file(path,as_attachment=True)
